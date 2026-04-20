@@ -2,8 +2,8 @@ import math, sys, stdio, stddraw
 from picture import Picture
 
 
-Player = Picture("Player1.png")
-Bullet = Picture("Bullet1.png")
+Player = Picture("Teacher.png")
+Bullet = Picture("Paper.png")
 
 # Set players starting position and speed
 player_x = 1280 / 2
@@ -16,13 +16,17 @@ player_speed = 50
 aim_angle = math.pi / 2
 aim_speed = 0.1
 
+#Turret specs
+bullet_x = 0
+bullet_y = 0
+
 # Bullet specifications
 bullets = []
 bullet_speed = 30
 
 
 def inputs():
-    global player_x, player_speed, player_width, player_height, aim_angle, aim_speed, bullet_speed, bullets
+    global player_x, player_speed, player_width, player_height, aim_angle, aim_speed, bullet_speed, bullets, bullet_x, bullet_y
 
     if stddraw.hasNextKeyTyped():
         key = stddraw.nextKeyTyped()
@@ -48,7 +52,37 @@ def inputs():
         elif key == " ":
             vx = bullet_speed * math.cos(aim_angle)
             vy = bullet_speed * math.sin(aim_angle)
-            bullets.append([player_x, player_y + player_height, vx, vy])
+            bullets.append([bullet_x, bullet_y, vx, vy])
+
+        elif key == 'x':
+            hold = key
+            return hold
+
+        elif key == 'm':
+            hold = 'm'
+            menu_mu = True
+            return hold
+
+        elif key == 'p':
+            hold = 'p'
+            over_mu = True
+            return hold
+
+        elif key == 'o':
+            hold = 'o'
+            win_mu = True
+            return hold
+
+        elif key == 's':
+            hold = 'game'
+            return hold
+
+
+
+
+
+
+
 
 
 def bullet_movement():
@@ -67,6 +101,7 @@ def bullet_movement():
 
 
 def imagery():
+    global bullet_x, bullet_y, Bullet
     # Drawing player
     stddraw.setPenColor(stddraw.BLACK)
     stddraw.picture(Player, player_x, player_y)
@@ -75,6 +110,12 @@ def imagery():
     for b in bullets:
         Degrees = math.degrees(aim_angle)
         stddraw.picture(Bullet, b[0], b[1])
+
+    bullet_y = player_y + abs(player_height * math.sin(aim_angle))
+    bullet_x = player_x + ( player_width * math.cos(aim_angle))
+
+    stddraw.picture(Bullet, bullet_x, bullet_y)
+
 
 
 def main():
