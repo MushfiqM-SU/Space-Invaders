@@ -14,7 +14,7 @@ player_speed = 50
 
 # Aiming specifications
 aim_angle = math.pi / 2
-aim_speed = 0.1
+aim_speed = 0.15
 
 #Turret specs
 bullet_x = 0
@@ -22,7 +22,7 @@ bullet_y = 0
 
 # Bullet specifications
 bullets = []
-bullet_speed = 30
+bullet_speed = 15
 
 
 def inputs(key):
