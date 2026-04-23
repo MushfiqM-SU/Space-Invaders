@@ -18,7 +18,7 @@ enemy_list_1 = enemies.init_enemies(5,3)  # sets rows to 3 (0,1,2)
 enemy_list_2 = None 
 boss = None
 
-
+# Coded by Matthew Rautenbach - 29015421
 def menu():
     # displays the main menu for the game
     global menu_mu
@@ -38,26 +38,16 @@ def menu():
     stddraw.setFontSize(30)
     stddraw.text(640, 144, "[S] to start")
 
-
-def play_background_music():
-    # This runs music in seperate loop to game
-    global music_changed
-    while play_bg:
-        stdaudio.playFile(current_song)
-        music_changed = False
-
-
+# Coded by Matthew Rautenbach - 29015421
 def change_music(new_song_file):
-    # pretty self-explainitory
+    #Changes the current .wav file being played after prevoius one is done with its current loop
     global current_song, music_changed
     if current_song != new_song_file:
         current_song = new_song_file
-    # Used since stdaudio doesn't have a built in change function
-    # The new song will play after current song finishes
 
-
+# Coded by Matthew Rautenbach - 29015421
 def game_over():
-    # gives the gameover screen
+    #Displays the game over screen
     global over_mu
     if over_mu == True:
         change_music("scary1")
@@ -74,9 +64,9 @@ def game_over():
     stddraw.setFontSize(20)
     stddraw.text(640, 324, "Menu: [M]   Exit: [X]")
 
-
+# Coded by Matthew Rautenbach - 29015421
 def win_screen():
-
+#Displays the win screen
     global win_mu
     if win_mu == True:
         change_music("win")
@@ -91,7 +81,7 @@ def win_screen():
     stddraw.setFontSize(20)
     stddraw.text(640, 360, "Menu: [M] Exit: [X]")
 
-
+# Coded by Matthew Rautenbach - 29015421 up until if level==1:
 def main():
     global menu_mu, over_mu, game_mu, win_mu, player_x, enemy_direction, enemy_list_1, enemy_list_2 ,level,boss
 
@@ -102,7 +92,7 @@ def main():
     stddraw.setXscale(0, 1280)
     stddraw.setYscale(0, 720)
 
-    threading.Thread(target=play_background_music, daemon=True).start()
+    threading.Thread(target=stdaudio.playFile(current_song), daemon=True).start()
 
     while True:
 
