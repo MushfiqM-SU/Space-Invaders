@@ -1,3 +1,5 @@
+# Coded by Mushfiq Majal - 28290607
+
 import math, sys, stdio, stddraw
 from picture import Picture
 
