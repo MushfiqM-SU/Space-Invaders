@@ -6,6 +6,8 @@ Player, Bullets and the background of the main game were hand created by Matthew
 
 Enemies and the Boss were hand created by Kyan
 
+Collisions, Player and Bullets were coded by Mushfiq
+
 Sound:
 
 All background music was implemented by Matthew, however all music was download from pixabay, a royalty free site, and was modified (ie. shortened) for the purposes for the game
