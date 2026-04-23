@@ -33,7 +33,7 @@ def menu():
     stddraw.setFontSize(20)
     stddraw.text(640, 504, "Instructions")
     stddraw.text(640, 432, "[A] move left, [D] move right")
-    stddraw.text(640, 360, "[Q] rotate left, [E] rotate right")
+    stddraw.text(640, 360, "[J] rotate left, [L] rotate right")
     stddraw.text(640, 288, "[Space] to shoot, [X] to quit, [M] for menu")
     stddraw.setFontSize(30)
     stddraw.text(640, 144, "[S] to start")
