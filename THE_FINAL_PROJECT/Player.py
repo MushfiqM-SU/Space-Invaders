@@ -99,22 +99,21 @@ def imagery():
 
 def main():
 
-    # Making the pop-up fullscreen
+    # Setting up the canvas and it's co-ordinate system
     stddraw.setCanvasSize(1280, 720)
-    # Making the co-ordinate system match the canvas size
     stddraw.setXscale(0, 1280)
     stddraw.setYscale(0, 720)
 
     # Start of "Game loop"
     while True:
-        stddraw.clear()  # sets screen to white for each frame
+        stddraw.clear()
         stddraw.picture(Picture("Forest.jpg"), 1280 / 2, 720 / 2)
 
         inputs()
         bullet_movement()
         imagery()
 
-        stddraw.show(10)  # shows each frame for 20ms (game runs at 1000ms/20ms = 50fps)
+        stddraw.show(10)
 
 
 if __name__ == "__main__":
