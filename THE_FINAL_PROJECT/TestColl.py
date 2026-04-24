@@ -26,7 +26,7 @@ def check_collisions(bullets, enemy_list, bullet_radius=10, enemy_radius=30):
             if i in removed_bullets:
                 continue # This bullet already hit an enemy
         
-            # distance formula
+            # distance formula:
             # b[0], b[1] are bullet's X and Y co-ords,  e["x"], e["y"] are enemy's X and Y co-ords
             dist = math.sqrt((b[0] - e["x"])**2 + (b[1] - e["y"])**2)
             
@@ -53,7 +53,7 @@ def current_score():
 
 
 
-# This function checks wheather the boss has been hit by a bullet. The boss has to be hit 10 times more than a normal enemies 
+# This function checks whether the boss has been hit by a bullet. The boss has to be hit 10 times more than a normal enemies 
 def check_boss_collisions(bullets, boss, bullet_radius=10):
 
     global score
